@@ -2,7 +2,46 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import pizza from '../../assets/pizza.png'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Productcard, { Product } from "./components/Productcard";
 
+
+const products:Product[] = [
+  {
+    id:'1',
+    name:'Margarita',
+    description:'This is veg pizza',
+    img: pizza,
+    price:500
+  },
+  {
+    id:'2',
+    name:'Margarita',
+    description:'This is veg pizza',
+    img: pizza,
+    price:500
+  },
+  {
+    id:'3',
+    name:'Margarita',
+    description:'This is veg pizza',
+    img: pizza,
+    price:500
+  },
+  {
+    id:'4',
+    name:'Margarita',
+    description:'This is veg pizza',
+    img: pizza,
+    price:500
+  },
+  {
+    id:'5',
+    name:'Margarita',
+    description:'This is veg pizza',
+    img: pizza,
+    price:500
+  },
+] 
 
 export default function Home() {
   return (
@@ -27,15 +66,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white/50">
+      <section className="bg-gray-200">
         <div className="container w-full mx-auto md:w-[900px] py-10">
-            <Tabs defaultValue="account" className="w-[400px]">
+            <Tabs defaultValue="pizza" className="w-fit">
             <TabsList>
               <TabsTrigger className="text-md" value="pizza">Pizza</TabsTrigger>
               <TabsTrigger className="text-md" value="beverages">Beverages</TabsTrigger>
             </TabsList>
-            <TabsContent value="pizza">Pizza List</TabsContent>
-            <TabsContent value="beverages">Beverage List</TabsContent>
+            <TabsContent value="pizza">
+              <div className="flex flex-wrap gap-4">
+              {
+                products?.map(product=>(
+                  <Productcard key={product.id} product={product}/>
+                ))
+              }
+              </div>
+            </TabsContent>
+            <TabsContent value="beverages">
+            <div className="flex flex-wrap gap-4">
+              {
+                products?.map(product=>(
+                  <Productcard key={product.id} product={product}/>
+                ))
+              }
+            </div>  
+            </TabsContent>
           </Tabs>
         </div>
       </section>
