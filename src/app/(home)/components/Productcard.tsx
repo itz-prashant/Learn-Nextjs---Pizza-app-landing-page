@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import Image from 'next/image';
 import React from 'react'
+import ToppingList from './ToppingList';
 
 export type Product={
     id:string;
@@ -42,6 +43,7 @@ const Productcard = ({product}:PropsType) => {
                         <div className='w-2/3 p-7'>
                             <h2 className='text-xl font-bold'>{product?.name}</h2>
                             <p className='text-sm font-medium'>{product?.description}</p>
+
                             <div>
                             <h4 className='mt-3'>Choose the size</h4>
                             <RadioGroup defaultValue="card" className="grid grid-cols-3 mt-2 gap-4">
@@ -91,6 +93,7 @@ const Productcard = ({product}:PropsType) => {
                                 </div>
                             </RadioGroup>
                             </div>
+
                             <div>
                             <h4 className='mt-3'>Choose the crust</h4>
                             <RadioGroup defaultValue="card" className="grid grid-cols-3 mt-2 gap-4">
@@ -125,6 +128,8 @@ const Productcard = ({product}:PropsType) => {
                                 </div>
                             </RadioGroup>
                             </div>
+
+                            <ToppingList />
                         </div>
                     </div>
                 </DialogContent>
